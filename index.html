@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clases Continuacion</title>
+        <h1>Continuacion de clases: propiedades estaticas
+            , metodos estaticos y herencia.
+        </h1>
+</head>
+<body>
+    <div>
+        <p>
+            <h2>Propiedades estaticas:</h2>
+            Estas Propiedades pueden ser utilizadas sin la necesidad
+            de instanciar la clase, es decir, no hace falta crear un
+            objeto de la clase, ya que estas propiedades pertenecen a la clase y no al objeto.  <br>
+            class Persona { <br>
+                static bornDate = 1995; <br>
+            de esta manera se declara una propiedad estatica y para acceder al valor de la misma simplemente: <br>
+            console.log(Persona.bornDate); <br>
+            Aqui demostramos que justamente no hace falta un objeto para acceder a la propiedad estatica ya que, 
+            se accede solamente con el nombre de la clase.
+            <h2>Set y get estaticos.</h2>
+            El setter estatico se utiliza de forma similar al comun solo que es para asignar el valor a una propiedad estatica y
+            que en vez de utilizar this.propiedad tenemos que escribir el nombre de la clase.propiedad como: <br>
+            Persona.bornDate <br>
+            class Persona { <br>
+                static bornDate = 1995; <br>
+                static set date(bornDate){ <br>
+                    persona1.bornDate = bornDate; <br>
+                } <br>
+            } <br>
+            Y para acceder al valor de la misma podemos utilizar un getter tambien accediendo desde la clase y no desde un objeto <br>
+            class Persona { <br>
+                static bornDate = 1995; <br>
+                static set date(bornDate){ <br>
+                    Persona.bornDate = bornDate; <br>
+                } <br>
+                static get date(){ <br>
+                    return Persona.bornDate; <br>
+                } <br>
+            } <br>
+            const persona1 = new Persona(); <br>
+            console.log(Persona.bornDate); <br>
+            Persona.date = 2000; <br>
+            console.log(Persona.date); <br>
+            <h2>Metodos estaticos:</h2>
+            Bien Los getters y setters no son otra cosa que metodos, asi que la aplicacion de los metodos estaticos en general,
+            es la misma que la de los setters y getters simplemente escribimos la palabra static antes del nombre del metodo 
+            y cuando lo querramos utilizar, lo tenemos que hacer a traves de la clase y no del objeto. <br>
+            class Persona { <br>
+                static bornDate = 1995; <br>
+                static set date(bornDate){ <br>
+                    Persona.bornDate = bornDate; <br>
+                static saludo(){ <br>
+                    console.log("Hola te estoy saludando estaticamente"); <br>
+                } <br>
+                Luego para llamar al metodo estatico: <br>
+                Persona.saludo(); <br>
+                <h2>Herencia:</h2>
+                La herencia en javascript nos permite crear una clase nueva cuyos objetos tengan propiedades propias pero que tambien tengan,
+                propiedades de una clase ya existente, la clase padre o superclase. <br>
+                Por ejemplo vamos a heredar una clase de la clase persona. por logica las personas pueden ser taxistas. <br>
+                class Taxista extends Persona{ <br>
+                    numeroDeChapa = 0; <br>
+                    set nombres(nombre){ <br>
+                        this.nombre = nombre; <br>
+                    } <br>
+                    get nombres(){ <br>
+                      return "mi nombre es " + this.nombre; <br>
+                    } <br>
+                    set apellidos(apellido){ <br>
+                        this.apellido = apellido; <br>
+                    } <br>
+                    get apellidos(){ <br>
+                        return "mi apellido es " + this.apellido; <br>
+                    } <br>
+                } <br>
+                Entonces en el ejemplo vemos que tomamos Las propiedades nombre y apellido de la clase persona que ya existia y le agregamos la propiedad numero de chapa. <br>
+
+            
+
+
+        </p>
+    </div>
+
+    <script src="clases.js"></script>
+    
+</body>
+</html>
